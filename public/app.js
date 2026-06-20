@@ -15,15 +15,24 @@ function svgEl(tag, attrs = {}) {
 }
 
 function renderMap(topo) {
-  const countries = topojson.feature(topo, topo.objects.countries);
   const g = document.getElementById('countries');
 
-  const pathData = countries.features.map(f => {
-    return featureToPath(f.geometry);
-  }).join(' ');
+  // Land fill (single merged shape)
+  const landPath = featureToPath(topojson.feature(topo, topo.objects.land).geometry);
+  g.appendChild(svgEl('path', { d: landPath, class: 'land' }));
 
-  const path = svgEl('path', { d: pathData, class: 'country' });
-  g.appendChild(path);
+  // Country borders as stroked lines, no fill
+  const borderPath = meshToPath(topojson.mesh(topo, topo.objects.countries));
+  g.appendChild(svgEl('path', { d: borderPath, class: 'borders' }));
+}
+
+function meshToPath(mesh) {
+  return mesh.coordinates.map(line =>
+    line.map(([lon, lat], i) => {
+      const { x, y } = project(lat, lon);
+      return `${i === 0 ? 'M' : 'L'}${x.toFixed(2)},${y.toFixed(2)}`;
+    }).join(' ')
+  ).join(' ');
 }
 
 function featureToPath(geometry) {

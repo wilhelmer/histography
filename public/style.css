@@ -64,9 +64,14 @@ h1 {
   display: block;
 }
 
-#world-map .country {
+#world-map .land {
   fill: #2a4a6e;
-  stroke: #0f3460;
+  stroke: none;
+}
+
+#world-map .borders {
+  fill: none;
+  stroke: #5a7fa8;
   stroke-width: 0.5;
 }
 
