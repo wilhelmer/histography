@@ -60,7 +60,7 @@ function featureToPath(geometry) {
 }
 
 // Label radius from marker center (clears the ring + padding)
-const LABEL_R = 20;
+const LABEL_R = 23;
 
 // Compute label offsets that point away from each other.
 // When markers are far apart, both labels go straight down (0, LABEL_R).
@@ -97,11 +97,12 @@ function placeMarker(lat, lon, year, type, labelOffset) {
 
   const lx = labelOffset ? labelOffset.x : 0;
   const ly = labelOffset ? labelOffset.y : LABEL_R;
-  const label = svgEl('text', {
-    class: `marker-label label-${type}`,
-    x: lx,
-    y: ly
-  });
+  // SVG text renders above its baseline, so an upward label looks further from
+  // the ring than a downward one. Shift the baseline down by the cap height so
+  // the visual gap is symmetric in both directions.
+  const labelAttrs = { class: `marker-label label-${type}`, x: lx, y: ly };
+  if (ly < 0) labelAttrs.dy = '8';
+  const label = svgEl('text', labelAttrs);
   label.textContent = year < 0 ? `${Math.abs(year)} BC` : year;
 
   g.appendChild(pulse);
@@ -240,6 +241,8 @@ async function playAgain() {
   document.getElementById('hint-btn').disabled = false;
   document.getElementById('play-again-btn').style.display = 'none';
   document.getElementById('map-container').classList.remove('celebrate');
+  zoom = 1; panX = 0; panY = 0;
+  applyTransform();
   gameOver = false;
   hintCount = 0;
   await loadFigure();
