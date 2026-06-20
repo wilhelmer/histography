@@ -249,6 +249,480 @@ const figures = [
       'She was captured by the English and burned at the stake at age 19, later declared a martyr and canonized as a saint.',
       'Born to a peasant family in a small French village, she convinced the Dauphin to let her command his army.'
     ]
+  },
+  // 20th century and beyond — writers, artists, scientists, musicians, athletes, politicians
+  {
+    name: 'Ernest Hemingway',
+    acceptable_names: ['ernest hemingway', 'hemingway'],
+    birth_lat: 41.8827, birth_lon: -87.6233, birth_year: 1899,
+    death_lat: 43.6921, death_lon: -114.3635, death_year: 1961,
+    hints: [
+      'This Nobel Prize-winning American author pioneered the "iceberg theory" of spare, understated prose.',
+      'He lived in Paris in the 1920s among the "Lost Generation" of expatriate writers, then later in Cuba for two decades.',
+      'He wrote The Sun Also Rises, A Farewell to Arms, and The Old Man and the Sea, and died by suicide in Ketchum, Idaho.'
+    ]
+  },
+  {
+    name: 'Pablo Picasso',
+    acceptable_names: ['pablo picasso', 'picasso'],
+    birth_lat: 36.7213, birth_lon: -4.4214, birth_year: 1881,
+    death_lat: 43.6167, death_lon: 7.0500, death_year: 1973,
+    hints: [
+      'This artist co-founded Cubism and produced around 20,000 works across painting, sculpture, and ceramics.',
+      'His 1937 painting depicting the bombing of a Basque town became an iconic anti-war statement.',
+      'Born in Málaga, Spain, he spent most of his adult life in France, dying at his villa on the French Riviera.'
+    ]
+  },
+  {
+    name: 'Franz Kafka',
+    acceptable_names: ['franz kafka', 'kafka'],
+    birth_lat: 50.0880, birth_lon: 14.4208, birth_year: 1883,
+    death_lat: 48.3069, death_lon: 16.0769, death_year: 1924,
+    hints: [
+      'This German-language novelist wrote The Metamorphosis and The Trial, giving rise to the adjective "Kafkaesque."',
+      'He worked as an insurance officer and asked his friend Max Brod to burn his manuscripts after his death — Brod refused.',
+      'Born in Prague, he died of tuberculosis at a sanatorium near Vienna at just 40 years old.'
+    ]
+  },
+  {
+    name: 'Frida Kahlo',
+    acceptable_names: ['frida kahlo', 'kahlo'],
+    birth_lat: 19.3550, birth_lon: -99.1625, birth_year: 1907,
+    death_lat: 19.3550, death_lon: -99.1625, death_year: 1954,
+    hints: [
+      'This Mexican painter is celebrated for her deeply personal self-portraits blending folk art with surrealism.',
+      'She survived a devastating bus accident at 18 that left her in lifelong pain, and began painting during her recovery.',
+      'She was married twice to the muralist Diego Rivera and died in the same house in Coyoacán where she was born.'
+    ]
+  },
+  {
+    name: 'Winston Churchill',
+    acceptable_names: ['winston churchill', 'churchill'],
+    birth_lat: 51.8414, birth_lon: -1.3592, birth_year: 1874,
+    death_lat: 51.5074, death_lon: -0.1278, death_year: 1965,
+    hints: [
+      'This British Prime Minister led the United Kingdom through the Second World War with defiant speeches that rallied the nation.',
+      'He won the Nobel Prize in Literature in 1953 for his historical writings and memoirs.',
+      'Born at Blenheim Palace, he died in London and received one of the largest state funerals in world history.'
+    ]
+  },
+  {
+    name: 'Vladimir Lenin',
+    acceptable_names: ['vladimir lenin', 'lenin', 'vladimir ilyich ulyanov'],
+    birth_lat: 54.3282, birth_lon: 48.3866, birth_year: 1870,
+    death_lat: 55.9607, death_lon: 37.1853, death_year: 1924,
+    hints: [
+      'This Marxist revolutionary led the Bolshevik seizure of power in Russia\'s 1917 October Revolution.',
+      'He founded the Soviet Union and served as its first head of government.',
+      'Born in Simbirsk on the Volga, he died at a government estate outside Moscow; his embalmed body remains on display in Red Square.'
+    ]
+  },
+  {
+    name: 'Charlie Chaplin',
+    acceptable_names: ['charlie chaplin', 'chaplin', 'charles chaplin'],
+    birth_lat: 51.4607, birth_lon: -0.1160, birth_year: 1889,
+    death_lat: 46.4312, death_lon: 6.9160, death_year: 1977,
+    hints: [
+      'This British comedian and filmmaker created the iconic "Little Tramp" character in the silent film era.',
+      'His film The Great Dictator (1940) was a bold satire of Hitler and fascism.',
+      'After being banned from re-entering the United States during the Red Scare, he settled in Switzerland, where he died.'
+    ]
+  },
+  {
+    name: 'Jimi Hendrix',
+    acceptable_names: ['jimi hendrix', 'hendrix', 'james hendrix'],
+    birth_lat: 47.6062, birth_lon: -122.3321, birth_year: 1942,
+    death_lat: 51.5074, death_lon: -0.1278, death_year: 1970,
+    hints: [
+      'This American guitarist is widely regarded as the greatest electric guitarist in history.',
+      'His performance of the Star-Spangled Banner at Woodstock in 1969 became one of rock music\'s defining moments.',
+      'Born in Seattle, he was discovered while playing in New York clubs and achieved his greatest fame after moving to London, where he died aged 27.'
+    ]
+  },
+  {
+    name: 'Bob Marley',
+    acceptable_names: ['bob marley', 'marley', 'robert marley'],
+    birth_lat: 18.3180, birth_lon: -77.3950, birth_year: 1945,
+    death_lat: 25.7617, death_lon: -80.1918, death_year: 1981,
+    hints: [
+      'This Jamaican singer-songwriter brought reggae to a worldwide audience and became a symbol of the Rastafari movement.',
+      'His albums Exodus and Legend are among the best-selling records of all time.',
+      'Born in Nine Mile, Jamaica, he died of cancer in Miami while en route home from Germany for cancer treatment.'
+    ]
+  },
+  {
+    name: 'Édith Piaf',
+    acceptable_names: ['edith piaf', 'piaf', 'la mome piaf'],
+    birth_lat: 48.8722, birth_lon: 2.3976, birth_year: 1915,
+    death_lat: 43.6698, death_lon: 6.9197, death_year: 1963,
+    hints: [
+      'Known as "The Little Sparrow," this singer became France\'s greatest popular music icon.',
+      'Her signature songs include La Vie en rose and Non, je ne regrette rien.',
+      'Born in the Belleville quarter of Paris, she died at a villa on the Côte d\'Azur and was buried at Père Lachaise cemetery.'
+    ]
+  },
+  {
+    name: 'Freddie Mercury',
+    acceptable_names: ['freddie mercury', 'mercury', 'farrokh bulsara'],
+    birth_lat: -4.0210, birth_lon: 39.6682, birth_year: 1946,
+    death_lat: 51.4994, death_lon: -0.1999, death_year: 1991,
+    hints: [
+      'This flamboyant rock vocalist was the lead singer of the British band Queen.',
+      'He was born in Zanzibar to Parsi Indian parents and moved to England in his teens.',
+      'His performance at Live Aid in 1985 is considered one of the greatest in rock history; he died of AIDS-related pneumonia at his home in Kensington, London.'
+    ]
+  },
+  {
+    name: 'Michael Jackson',
+    acceptable_names: ['michael jackson', 'jackson', 'mj', 'king of pop'],
+    birth_lat: 41.5548, birth_lon: -87.2000, birth_year: 1958,
+    death_lat: 34.0659, death_lon: -118.3985, death_year: 2009,
+    hints: [
+      'Known as the "King of Pop," this American entertainer sold over 750 million records worldwide.',
+      'His 1982 album Thriller remains the best-selling album of all time.',
+      'Born in Gary, Indiana, he died of acute propofol intoxication at his rented Holmby Hills mansion in Los Angeles.'
+    ]
+  },
+  {
+    name: 'Coco Chanel',
+    acceptable_names: ['coco chanel', 'chanel', 'gabrielle chanel'],
+    birth_lat: 47.5000, birth_lon: -0.5667, birth_year: 1883,
+    death_lat: 48.8682, death_lon: 2.3291, death_year: 1971,
+    hints: [
+      'This French fashion designer revolutionized women\'s fashion by replacing corsets with comfortable, elegant clothing.',
+      'She created one of the world\'s most famous perfumes — Chanel No. 5 — and the iconic little black dress.',
+      'Born in Saumur and raised in an orphanage, she built her empire in Paris, dying in her suite at the Hôtel Ritz.'
+    ]
+  },
+  {
+    name: 'Salvador Dalí',
+    acceptable_names: ['salvador dali', 'dali', 'salvador dalí'],
+    birth_lat: 42.2669, birth_lon: 2.9613, birth_year: 1904,
+    death_lat: 42.2669, death_lon: 2.9613, death_year: 1989,
+    hints: [
+      'This Spanish surrealist painter is best known for The Persistence of Memory with its melting clocks.',
+      'He collaborated with filmmaker Luis Buñuel and had a lifelong muse in his wife Gala.',
+      'Born and buried in Figueres, Catalonia, he requested interment in the crypt beneath his own Theatre-Museum.'
+    ]
+  },
+  {
+    name: 'James Joyce',
+    acceptable_names: ['james joyce', 'joyce'],
+    birth_lat: 53.2941, birth_lon: -6.2148, birth_year: 1882,
+    death_lat: 47.3769, death_lon: 8.5417, death_year: 1941,
+    hints: [
+      'This Irish novelist transformed modern literature with his stream-of-consciousness technique in Ulysses and Finnegans Wake.',
+      'Though his works are set almost entirely in Dublin, he spent most of his adult life abroad.',
+      'He died in Zurich after intestinal surgery, having lived as an expatriate in Trieste, Paris, and Switzerland.'
+    ]
+  },
+  {
+    name: 'Ayrton Senna',
+    acceptable_names: ['ayrton senna', 'senna'],
+    birth_lat: -23.5505, birth_lon: -46.6333, birth_year: 1960,
+    death_lat: 44.1390, death_lon: 12.2497, death_year: 1994,
+    hints: [
+      'This Brazilian Formula 1 driver won three World Championships and is considered the greatest racing driver of all time by many.',
+      'His on-track rivalry with Alain Prost in the late 1980s was one of the most intense in sport.',
+      'Born in São Paulo, he died after crashing his Williams at the San Marino Grand Prix at Imola, Italy.'
+    ]
+  },
+  {
+    name: 'Bruce Lee',
+    acceptable_names: ['bruce lee', 'lee jun-fan', 'lee'],
+    birth_lat: 37.7749, birth_lon: -122.4194, birth_year: 1940,
+    death_lat: 22.3193, death_lon: 114.1694, death_year: 1973,
+    hints: [
+      'This martial artist and actor founded Jeet Kune Do and brought kung fu films to a global audience.',
+      'Born in San Francisco to a Hong Kong father, he grew up in Hong Kong and later returned to the US to study philosophy.',
+      'He died unexpectedly at 32 from cerebral edema in Hong Kong, shortly before the release of Enter the Dragon.'
+    ]
+  },
+  {
+    name: 'Marilyn Monroe',
+    acceptable_names: ['marilyn monroe', 'monroe', 'norma jeane mortenson', 'norma jeane baker'],
+    birth_lat: 34.0522, birth_lon: -118.2437, birth_year: 1926,
+    death_lat: 34.0540, death_lon: -118.4380, death_year: 1962,
+    hints: [
+      'This actress and model became the defining Hollywood sex symbol of the 1950s and early 1960s.',
+      'She sang "Happy Birthday, Mr. President" to John F. Kennedy at Madison Square Garden in 1962.',
+      'Born and died in Los Angeles, she was found dead of a barbiturate overdose at her Brentwood home aged 36.'
+    ]
+  },
+  {
+    name: 'Audrey Hepburn',
+    acceptable_names: ['audrey hepburn', 'hepburn'],
+    birth_lat: 50.8503, birth_lon: 4.3517, birth_year: 1929,
+    death_lat: 46.2044, death_lon: 6.1432, death_year: 1993,
+    hints: [
+      'This actress won an Academy Award, a Tony, an Emmy, and a Grammy — one of the rare EGOT recipients.',
+      'After her Hollywood career, she became a UNICEF Goodwill Ambassador, traveling the world for humanitarian causes.',
+      'Born in Brussels to a Dutch mother and British father, she spent her final years at her home in Tolochenaz, Switzerland, where she died.'
+    ]
+  },
+  {
+    name: 'Walt Disney',
+    acceptable_names: ['walt disney', 'disney', 'walter disney'],
+    birth_lat: 41.8827, birth_lon: -87.6233, birth_year: 1901,
+    death_lat: 34.1808, death_lon: -118.3090, death_year: 1966,
+    hints: [
+      'This American entrepreneur created Mickey Mouse and built the world\'s most famous entertainment company.',
+      'He pioneered the full-length animated feature film with Snow White and the Seven Dwarfs in 1937.',
+      'Born in Chicago, he moved to Los Angeles to build his studio empire and died there while planning Disney World.'
+    ]
+  },
+  {
+    name: 'Nikita Khrushchev',
+    acceptable_names: ['nikita khrushchev', 'khrushchev'],
+    birth_lat: 51.5522, birth_lon: 35.5672, birth_year: 1894,
+    death_lat: 55.7558, death_lon: 37.6176, death_year: 1971,
+    hints: [
+      'This Soviet leader led the USSR during the Cuban Missile Crisis, the most dangerous nuclear standoff of the Cold War.',
+      'His "Secret Speech" denouncing Stalin\'s cult of personality in 1956 was a historic turning point.',
+      'Born in a village in Kursk Oblast, he rose to lead the Soviet Union and died in Moscow after being ousted in a political coup.'
+    ]
+  },
+  {
+    name: 'Ho Chi Minh',
+    acceptable_names: ['ho chi minh', 'ho', 'nguyen sinh cung'],
+    birth_lat: 18.6796, birth_lon: 105.6813, birth_year: 1890,
+    death_lat: 21.0285, death_lon: 105.8542, death_year: 1969,
+    hints: [
+      'This Vietnamese communist revolutionary led his country\'s independence movement against France and later the United States.',
+      'He lived and worked in Paris, Moscow, and China before returning to lead the Viet Minh.',
+      'Born in Nghe An province in central Vietnam, he died in Hanoi; the city was later renamed after him.'
+    ]
+  },
+  {
+    name: 'Mother Teresa',
+    acceptable_names: ['mother teresa', 'teresa', 'anjeze gonxhe bojaxhiu', 'saint teresa of calcutta'],
+    birth_lat: 41.9961, birth_lon: 21.4317, birth_year: 1910,
+    death_lat: 22.5726, death_lon: 88.3639, death_year: 1997,
+    hints: [
+      'This Roman Catholic nun founded the Missionaries of Charity and devoted her life to serving the poorest of the poor.',
+      'She received the Nobel Peace Prize in 1979 and was canonized as a saint in 2016.',
+      'Born in Skopje (now North Macedonia) to Albanian parents, she moved to India at 19 and spent the rest of her life in Calcutta.'
+    ]
+  },
+  {
+    name: 'Yuri Gagarin',
+    acceptable_names: ['yuri gagarin', 'gagarin'],
+    birth_lat: 55.0283, birth_lon: 35.2303, birth_year: 1934,
+    death_lat: 55.9849, death_lon: 38.2095, death_year: 1968,
+    hints: [
+      'This Soviet cosmonaut became the first human to travel into outer space on April 12, 1961.',
+      'His Vostok spacecraft completed one orbit of Earth in just 108 minutes.',
+      'Born in the Smolensk Oblast of Russia, he died in a MiG-15 training jet crash near the town of Kirzhach.'
+    ]
+  },
+  {
+    name: 'Alan Turing',
+    acceptable_names: ['alan turing', 'turing'],
+    birth_lat: 51.5074, birth_lon: -0.1278, birth_year: 1912,
+    death_lat: 53.4808, death_lon: -2.2426, death_year: 1954,
+    hints: [
+      'This mathematician and logician is considered the father of theoretical computer science and artificial intelligence.',
+      'During World War II he led the team that broke the German Enigma cipher at Bletchley Park, helping to shorten the war.',
+      'Born in London, he died in Manchester from cyanide poisoning — likely suicide — after being chemically castrated by the British government for his homosexuality.'
+    ]
+  },
+  {
+    name: 'Anne Frank',
+    acceptable_names: ['anne frank', 'frank', 'annelies frank'],
+    birth_lat: 50.1109, birth_lon: 8.6821, birth_year: 1929,
+    death_lat: 53.1061, death_lon: 9.9868, death_year: 1945,
+    hints: [
+      'This Jewish teenager kept a diary while hiding from the Nazis in a concealed apartment in Amsterdam during World War II.',
+      'Her diary was published posthumously by her father Otto and became one of the most widely read books in the world.',
+      'Born in Frankfurt, she died in the Bergen-Belsen concentration camp in Germany, weeks before the camp\'s liberation.'
+    ]
+  },
+  {
+    name: 'Martin Luther King Jr.',
+    acceptable_names: ['martin luther king', 'martin luther king jr', 'mlk', 'king'],
+    birth_lat: 33.7490, birth_lon: -84.3880, birth_year: 1929,
+    death_lat: 35.1495, death_lon: -90.0490, death_year: 1968,
+    hints: [
+      'This Baptist minister and civil rights leader delivered the "I Have a Dream" speech to 250,000 people in Washington D.C.',
+      'He received the Nobel Peace Prize in 1964 at age 35, the youngest recipient at the time.',
+      'Born in Atlanta, Georgia, he was assassinated on the balcony of the Lorraine Motel in Memphis, Tennessee.'
+    ]
+  },
+  {
+    name: 'Indira Gandhi',
+    acceptable_names: ['indira gandhi', 'indira'],
+    birth_lat: 25.4358, birth_lon: 81.8463, birth_year: 1917,
+    death_lat: 28.6139, death_lon: 77.2090, death_year: 1984,
+    hints: [
+      'This politician was the first and only female Prime Minister of India, serving for a total of fifteen years.',
+      'She led India to victory in the 1971 war against Pakistan, which led to the creation of Bangladesh.',
+      'Born in Allahabad, she was assassinated by her own bodyguards at her official residence in New Delhi.'
+    ]
+  },
+  {
+    name: 'Pelé',
+    acceptable_names: ['pele', 'pelé', 'edson arantes do nascimento'],
+    birth_lat: -20.7333, birth_lon: -46.6167, birth_year: 1940,
+    death_lat: -23.5505, death_lon: -46.6333, death_year: 2022,
+    hints: [
+      'This Brazilian footballer is widely regarded as the greatest player in the history of the sport.',
+      'He won three FIFA World Cups with Brazil — in 1958, 1962, and 1970 — the only player to do so.',
+      'Born in Três Corações, Minas Gerais, he died of colon cancer in São Paulo.'
+    ]
+  },
+  {
+    name: 'Marcel Proust',
+    acceptable_names: ['marcel proust', 'proust'],
+    birth_lat: 48.8068, birth_lon: 2.2381, birth_year: 1871,
+    death_lat: 48.8566, death_lon: 2.3522, death_year: 1922,
+    hints: [
+      'This French author wrote In Search of Lost Time, one of the longest and most celebrated novels in world literature.',
+      'He spent his later years in a cork-lined bedroom in Paris, writing in bed to avoid noise and allergens.',
+      'Born in Auteuil, a suburb of Paris, he lived and died in the city that so thoroughly defined his work.'
+    ]
+  },
+  {
+    name: 'Simone de Beauvoir',
+    acceptable_names: ['simone de beauvoir', 'beauvoir', 'de beauvoir'],
+    birth_lat: 48.8566, birth_lon: 2.3522, birth_year: 1908,
+    death_lat: 48.8566, death_lon: 2.3522, death_year: 1986,
+    hints: [
+      'This French existentialist philosopher and writer authored The Second Sex, a foundational text of feminist theory.',
+      'She had a lifelong intellectual and romantic partnership with Jean-Paul Sartre.',
+      'Born and buried in Paris, she was interred alongside Sartre at Montparnasse Cemetery.'
+    ]
+  },
+  {
+    name: 'Joseph Stalin',
+    acceptable_names: ['joseph stalin', 'stalin', 'iosif dzhugashvili'],
+    birth_lat: 42.2679, birth_lon: 41.6429, birth_year: 1878,
+    death_lat: 55.7558, death_lon: 37.6176, death_year: 1953,
+    hints: [
+      'This Soviet dictator led the USSR through World War II and created the gulag system of forced labour camps.',
+      'Born in Gori, Georgia, he rose from a humble background to become the unchallenged ruler of the Soviet Union.',
+      'He died in Moscow, having transformed the USSR into a superpower at an enormous human cost estimated at millions of lives.'
+    ]
+  },
+  {
+    name: 'Marlene Dietrich',
+    acceptable_names: ['marlene dietrich', 'dietrich'],
+    birth_lat: 52.5200, birth_lon: 13.4050, birth_year: 1901,
+    death_lat: 48.8566, death_lon: 2.3522, death_year: 1992,
+    hints: [
+      'This actress and singer became an international superstar in the 1930s, famous for her androgynous glamour.',
+      'She became an American citizen and performed for Allied troops during World War II, opposing the Nazi regime of her homeland.',
+      'Born in Berlin, she spent her final years as a recluse in her Paris apartment, where she died.'
+    ]
+  },
+  {
+    name: 'Gabriel García Márquez',
+    acceptable_names: ['gabriel garcia marquez', 'garcia marquez', 'gabo', 'gabriel garcía márquez'],
+    birth_lat: 10.4619, birth_lon: -74.1943, birth_year: 1927,
+    death_lat: 19.4326, death_lon: -99.1332, death_year: 2014,
+    hints: [
+      'This Colombian novelist won the Nobel Prize in Literature in 1982 and pioneered magical realism.',
+      'His novel One Hundred Years of Solitude sold more than 50 million copies and has been translated into 46 languages.',
+      'Born in Aracataca, Colombia, he spent much of his later life in Mexico City, where he died.'
+    ]
+  },
+  {
+    name: 'Diego Maradona',
+    acceptable_names: ['diego maradona', 'maradona', 'diego armando maradona'],
+    birth_lat: -34.6037, birth_lon: -58.3816, birth_year: 1960,
+    death_lat: -34.5333, death_lon: -58.7167, death_year: 2020,
+    hints: [
+      'This Argentine footballer scored the infamous "Hand of God" goal against England at the 1986 World Cup.',
+      'He led Argentina to World Cup victory in 1986 and revitalized Napoli, winning two Serie A titles.',
+      'Born in Lanús, Buenos Aires, he died of cardiac arrest at his home in Tigre, Buenos Aires.'
+    ]
+  },
+  {
+    name: 'Ayatollah Khomeini',
+    acceptable_names: ['ayatollah khomeini', 'khomeini', 'ruhollah khomeini'],
+    birth_lat: 34.0917, birth_lon: 49.7014, birth_year: 1902,
+    death_lat: 35.6892, death_lon: 51.3890, death_year: 1989,
+    hints: [
+      'This Shia cleric led the 1979 Iranian Revolution that overthrew the Shah and established the Islamic Republic.',
+      'He spent 14 years in exile in Iraq and France before returning triumphantly to Tehran in 1979.',
+      'Born in Khomein, Iran, he served as Supreme Leader of Iran until his death in Tehran.'
+    ]
+  },
+  {
+    name: 'Mikhail Gorbachev',
+    acceptable_names: ['mikhail gorbachev', 'gorbachev'],
+    birth_lat: 45.7522, birth_lon: 43.0125, birth_year: 1931,
+    death_lat: 55.7558, death_lon: 37.6176, death_year: 2022,
+    hints: [
+      'This Soviet leader introduced the reforms of glasnost and perestroika that ultimately led to the fall of the USSR.',
+      'He was awarded the Nobel Peace Prize in 1990 for his role in ending the Cold War.',
+      'Born in Privolnoye in Stavropol Krai, he died in Moscow at age 91 — the last leader of the Soviet Union.'
+    ]
+  },
+  {
+    name: 'Louis Armstrong',
+    acceptable_names: ['louis armstrong', 'armstrong', 'satchmo'],
+    birth_lat: 29.9511, birth_lon: -90.0715, birth_year: 1901,
+    death_lat: 40.7128, death_lon: -74.0060, death_year: 1971,
+    hints: [
+      'This jazz trumpeter and singer from New Orleans is widely considered the most influential figure in jazz history.',
+      'His recordings in the 1920s with his Hot Five and Hot Seven groups defined early jazz.',
+      'Born in a poor neighbourhood of New Orleans, he became a global ambassador for jazz and died in his sleep in New York.'
+    ]
+  },
+  {
+    name: 'Josephine Baker',
+    acceptable_names: ['josephine baker', 'baker', 'freda josephine mcdonald'],
+    birth_lat: 38.6270, birth_lon: -90.1994, birth_year: 1906,
+    death_lat: 48.8566, death_lon: 2.3522, death_year: 1975,
+    hints: [
+      'This American-born French entertainer became the most successful Black performer in European history in the 1920s–30s.',
+      'She was a French Resistance spy during World War II and a civil rights activist who refused to perform before segregated audiences.',
+      'Born in St. Louis, Missouri, she renounced her American citizenship and became a French national, dying in Paris.'
+    ]
+  },
+  {
+    name: 'Oskar Schindler',
+    acceptable_names: ['oskar schindler', 'schindler'],
+    birth_lat: 49.9000, birth_lon: 17.9000, birth_year: 1908,
+    death_lat: 49.4800, death_lon: 8.4500, death_year: 1974,
+    hints: [
+      'This German industrialist saved the lives of over 1,200 Jewish workers by employing them in his factories during the Holocaust.',
+      'His story was told in the 1993 Steven Spielberg film that won seven Academy Awards.',
+      'Born in Zwittau (now Svitavy, Czech Republic), he is buried in Jerusalem; he died in Hildesheim, Germany, in poverty.'
+    ]
+  },
+  {
+    name: 'Rainer Maria Rilke',
+    acceptable_names: ['rainer maria rilke', 'rilke'],
+    birth_lat: 50.0880, birth_lon: 14.4208, birth_year: 1875,
+    death_lat: 46.1060, death_lon: 7.1000, death_year: 1926,
+    hints: [
+      'This Bohemian-Austrian poet wrote the Duino Elegies and Letters to a Young Poet, considered pinnacles of German-language poetry.',
+      'He lived as a nomad across Europe — Russia, Paris, Spain, and Switzerland — relying on patrons for support.',
+      'Born in Prague, he died in Val-Mont sanatorium near Montreux, Switzerland, from complications of leukemia.'
+    ]
+  },
+  {
+    name: 'Igor Stravinsky',
+    acceptable_names: ['igor stravinsky', 'stravinsky'],
+    birth_lat: 59.9311, birth_lon: 29.1283, birth_year: 1882,
+    death_lat: 40.7128, death_lon: -74.0060, death_year: 1971,
+    hints: [
+      'This Russian composer\'s Rite of Spring caused a riot at its Paris premiere in 1913 and transformed Western music.',
+      'He lived in Switzerland, France, and the United States, becoming an American citizen in 1945.',
+      'Born near St. Petersburg, he died in New York and was buried in Venice at the cemetery island of San Michele.'
+    ]
+  },
+  {
+    name: 'Pablo Neruda',
+    acceptable_names: ['pablo neruda', 'neruda', 'neftali reyes basoalto'],
+    birth_lat: -36.0100, birth_lon: -72.0000, birth_year: 1904,
+    death_lat: -33.4489, death_lon: -70.6693, death_year: 1973,
+    hints: [
+      'This Chilean poet won the Nobel Prize in Literature in 1971 and is celebrated for his passionate love poems.',
+      'He served as a Chilean diplomat and senator, was forced into exile, and remained a committed communist throughout his life.',
+      'Born in Parral, southern Chile, he died in Santiago just days after the coup that brought Pinochet to power.'
+    ]
   }
 ];
 
