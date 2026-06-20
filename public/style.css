@@ -37,6 +37,12 @@ header {
   margin-bottom: 20px;
 }
 
+#logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
 h1 {
   font-size: 2rem;
   font-weight: 700;
