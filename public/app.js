@@ -86,7 +86,7 @@ function labelOffsets(b, d) {
 
 function placeMarker(lat, lon, year, type, labelOffset) {
   const { x, y } = project(lat, lon);
-  const g = svgEl('g', { class: `marker-${type}`, transform: `translate(${x},${y})` });
+  const g = svgEl('g', { class: `marker-${type}` });
 
   // Pulsing ring (animated)
   const pulse = svgEl('circle', { class: 'ring pulse-ring', cx: 0, cy: 0, r: 8 });
@@ -110,7 +110,12 @@ function placeMarker(lat, lon, year, type, labelOffset) {
   g.appendChild(label);
 
   document.getElementById('markers').appendChild(g);
+  markerEls.push({ el: g, x, y });
+  updateMarkerTransforms();
 }
+
+// Marker elements that should stay fixed-size across zoom levels: [{el, x, y}]
+const markerEls = [];
 
 // ── Game state ──────────────────────────────────────────────────────────────
 
@@ -225,6 +230,7 @@ async function playAgain() {
   await fetch('/api/reset', { method: 'POST' });
   // Clear state
   document.getElementById('markers').innerHTML = '';
+  markerEls.length = 0;
   document.getElementById('message-area').textContent = '';
   document.getElementById('message-area').className = '';
   document.getElementById('hint-area').textContent = '';
@@ -267,8 +273,16 @@ const ZOOM_STEP = 1.15;
 let zoom = 1, panX = 0, panY = 0;
 let dragging = false, dragStart = null;
 
+function updateMarkerTransforms() {
+  const inv = 1 / zoom;
+  for (const { el, x, y } of markerEls) {
+    el.setAttribute('transform', `translate(${x},${y}) scale(${inv})`);
+  }
+}
+
 function applyTransform() {
   mapRoot.setAttribute('transform', `translate(${panX},${panY}) scale(${zoom})`);
+  updateMarkerTransforms();
 }
 
 // Convert a screen point to SVG viewBox coordinates
