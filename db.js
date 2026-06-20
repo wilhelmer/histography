@@ -681,17 +681,6 @@ const figures = [
     ]
   },
   {
-    name: 'Oskar Schindler',
-    acceptable_names: ['oskar schindler', 'schindler'],
-    birth_lat: 49.9000, birth_lon: 17.9000, birth_year: 1908,
-    death_lat: 49.4800, death_lon: 8.4500, death_year: 1974,
-    hints: [
-      'This German industrialist saved the lives of over 1,200 Jewish workers by employing them in his factories during the Holocaust.',
-      'His story was told in the 1993 Steven Spielberg film that won seven Academy Awards.',
-      'Born in Zwittau (now Svitavy, Czech Republic), he is buried in Jerusalem; he died in Hildesheim, Germany, in poverty.'
-    ]
-  },
-  {
     name: 'Rainer Maria Rilke',
     acceptable_names: ['rainer maria rilke', 'rilke'],
     birth_lat: 50.0880, birth_lon: 14.4208, birth_year: 1875,
@@ -722,6 +711,118 @@ const figures = [
       'This Chilean poet won the Nobel Prize in Literature in 1971 and is celebrated for his passionate love poems.',
       'He served as a Chilean diplomat and senator, was forced into exile, and remained a committed communist throughout his life.',
       'Born in Parral, southern Chile, he died in Santiago just days after the coup that brought Pinochet to power.'
+    ]
+  },
+  // Ancient history
+  {
+    name: 'Julius Caesar',
+    acceptable_names: ['julius caesar', 'caesar', 'gaius julius caesar'],
+    birth_lat: 41.8967, birth_lon: 12.4822, birth_year: -100,
+    death_lat: 41.8967, death_lon: 12.4822, death_year: -44,
+    hints: [
+      'This Roman general and statesman conquered Gaul and crossed the Rubicon, triggering a civil war that ended the Roman Republic.',
+      'He reformed the Roman calendar, creating the Julian calendar that was used for 1,600 years.',
+      'He was assassinated on the Ides of March by a group of senators including his ally Brutus, at the Theatre of Pompey in Rome.'
+    ]
+  },
+  {
+    name: 'Cleopatra',
+    acceptable_names: ['cleopatra', 'cleopatra vii', 'cleopatra philopator'],
+    birth_lat: 31.2001, birth_lon: 29.9187, birth_year: -69,
+    death_lat: 31.2001, death_lon: 29.9187, death_year: -30,
+    hints: [
+      'This last active ruler of the Ptolemaic Kingdom of Egypt was the first in her dynasty to learn the Egyptian language.',
+      'She formed powerful alliances — and romantic relationships — with Julius Caesar and Mark Antony.',
+      'Born and died in Alexandria, she took her own life after Octavian\'s forces defeated Antony\'s fleet at the Battle of Actium.'
+    ]
+  },
+  {
+    name: 'Socrates',
+    acceptable_names: ['socrates'],
+    birth_lat: 37.9838, birth_lon: 23.7275, birth_year: -470,
+    death_lat: 37.9838, death_lon: 23.7275, death_year: -399,
+    hints: [
+      'This Athenian philosopher developed the Socratic method of questioning and is considered the founder of Western philosophy.',
+      'He wrote nothing himself — all we know of him comes through the dialogues of his student Plato.',
+      'He was tried for impiety and corrupting the youth of Athens, sentenced to death, and drank hemlock in prison.'
+    ]
+  },
+  {
+    name: 'Archimedes',
+    acceptable_names: ['archimedes'],
+    birth_lat: 37.0755, birth_lon: 15.2866, birth_year: -287,
+    death_lat: 37.0755, death_lon: 15.2866, death_year: -212,
+    hints: [
+      'This ancient Greek mathematician and inventor is considered the greatest mathematician of antiquity.',
+      'He discovered the principle of buoyancy while stepping into a bath, reportedly shouting "Eureka!"',
+      'Born and died in Syracuse, Sicily, he was killed by a Roman soldier during the siege of the city, despite orders to spare him.'
+    ]
+  },
+  {
+    name: 'Attila the Hun',
+    acceptable_names: ['attila the hun', 'attila'],
+    birth_lat: 47.1625, birth_lon: 19.5033, birth_year: 406,
+    death_lat: 47.1625, death_lon: 19.5033, death_year: 453,
+    hints: [
+      'Called the "Scourge of God," this ruler of the Hunnic Empire led devastating raids across both the Eastern and Western Roman Empires.',
+      'He came within striking distance of Rome and Constantinople, extracting enormous tribute payments from both empires.',
+      'He died on the night of his wedding — likely from a hemorrhage — and was buried in a secret location in the Hungarian plains.'
+    ]
+  },
+  // Renaissance
+  {
+    name: 'Michelangelo',
+    acceptable_names: ['michelangelo', 'michelangelo buonarroti'],
+    birth_lat: 43.6567, birth_lon: 11.9847, birth_year: 1475,
+    death_lat: 41.8967, death_lon: 12.4822, death_year: 1564,
+    hints: [
+      'This Italian sculptor and painter spent four years lying on scaffolding to paint the ceiling of the Sistine Chapel.',
+      'His marble sculptures David and Pietà are considered among the greatest works of art ever created.',
+      'Born in Caprese, Tuscany, he spent the last decades of his life in Rome, where he died at age 88.'
+    ]
+  },
+  {
+    name: 'Nicolaus Copernicus',
+    acceptable_names: ['nicolaus copernicus', 'copernicus', 'mikolaj kopernik'],
+    birth_lat: 53.0138, birth_lon: 18.5981, birth_year: 1473,
+    death_lat: 54.3520, death_lon: 20.6143, death_year: 1543,
+    hints: [
+      'This Renaissance polymath proposed the heliocentric model of the solar system, placing the Sun at its center.',
+      'He worked most of his life as a canon of the Catholic Church, developing his revolutionary theory on the side.',
+      'Born in Royal Prussia (now Poland), he died in Frombork, where his manuscript De revolutionibus was published in the year of his death.'
+    ]
+  },
+  {
+    name: 'Galileo Galilei',
+    acceptable_names: ['galileo galilei', 'galileo'],
+    birth_lat: 43.7228, birth_lon: 10.4017, birth_year: 1564,
+    death_lat: 43.7606, death_lon: 11.2558, death_year: 1642,
+    hints: [
+      'This Italian astronomer improved the telescope and made observations that confirmed the heliocentric model of the solar system.',
+      'The Inquisition forced him to recant his findings and placed him under house arrest for the rest of his life.',
+      'Born in Pisa, he spent his final years confined to his villa in Arcetri near Florence, where he died blind.'
+    ]
+  },
+  {
+    name: 'Raphael',
+    acceptable_names: ['raphael', 'raffaello sanzio', 'raffaello'],
+    birth_lat: 43.7270, birth_lon: 12.6362, birth_year: 1483,
+    death_lat: 41.8967, death_lon: 12.4822, death_year: 1520,
+    hints: [
+      'This Italian painter is celebrated for the grace and beauty of his Madonnas and for the Vatican fresco The School of Athens.',
+      'He was one of the three great masters of the High Renaissance alongside Leonardo da Vinci and Michelangelo.',
+      'Born in Urbino, he died in Rome on his 37th birthday and was buried in the Pantheon.'
+    ]
+  },
+  {
+    name: 'Erasmus of Rotterdam',
+    acceptable_names: ['erasmus', 'erasmus of rotterdam', 'desiderius erasmus'],
+    birth_lat: 51.9225, birth_lon: 4.4792, birth_year: 1469,
+    death_lat: 47.5596, death_lon: 7.5886, death_year: 1536,
+    hints: [
+      'This Dutch humanist scholar was the greatest intellectual of the Northern Renaissance and a sharp critic of Church corruption.',
+      'His satirical work In Praise of Folly, written in a week at Thomas More\'s house, became the Renaissance\'s bestselling book.',
+      'Born in Rotterdam, he spent his life wandering between England, France, Italy, and Switzerland, dying in Basel.'
     ]
   }
 ];
