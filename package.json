@@ -1,0 +1,17 @@
+{
+  "name": "histography",
+  "version": "1.0.0",
+  "description": "A web quiz app: name the historical figure from their birth and death locations",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "world-atlas": "^2.0.2"
+  }
+}

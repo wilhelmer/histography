@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Histography</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Histography</h1>
+      <p class="subtitle">Who is this historical figure?</p>
+    </header>
+
+    <div id="map-container">
+      <svg id="world-map" viewBox="0 0 960 500" preserveAspectRatio="xMidYMid meet">
+        <g id="countries"></g>
+        <g id="markers"></g>
+      </svg>
+    </div>
+
+    <div id="legend">
+      <span class="legend-item birth">● Birth location</span>
+      <span class="legend-item death">● Death location</span>
+    </div>
+
+    <div id="game-panel">
+      <div id="message-area"></div>
+
+      <div id="input-area">
+        <input type="text" id="guess-input" placeholder="Enter the historical figure's name…" autocomplete="off" spellcheck="false">
+        <div id="controls">
+          <button id="submit-btn">Submit</button>
+          <button id="hint-btn">Hint</button>
+        </div>
+      </div>
+
+      <div id="attempts-area">
+        <span id="attempts-label"></span>
+        <div id="attempt-dots"></div>
+      </div>
+
+      <div id="hint-area"></div>
+
+      <button id="play-again-btn" style="display:none">Play Again</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
