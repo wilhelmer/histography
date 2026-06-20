@@ -120,6 +120,17 @@ app.get('/api/hint', (req, res) => {
   res.json({ hint });
 });
 
+app.post('/api/giveup', (req, res) => {
+  const game = req.session.game;
+  if (!game) return res.status(400).json({ error: 'No active game' });
+  if (game.solved || game.failed) return res.status(400).json({ error: 'Game already over' });
+
+  game.failed = true;
+  req.session.game = game;
+  const figure = db.prepare('SELECT name FROM figures WHERE id = ?').get(game.figureId);
+  res.json({ name: figure.name });
+});
+
 app.post('/api/reset', (req, res) => {
   req.session.game = null;
   res.json({ ok: true });

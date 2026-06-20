@@ -255,6 +255,15 @@ button:disabled { opacity: 0.4; cursor: not-allowed; }
 
 #hint-btn:hover:not(:disabled) { background: #1a4580; }
 
+#giveup-btn {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid #333;
+  flex: 0 0 auto;
+}
+
+#giveup-btn:hover:not(:disabled) { color: var(--death-color); border-color: var(--death-color); }
+
 #attempts-area {
   display: flex;
   align-items: center;

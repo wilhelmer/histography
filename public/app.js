@@ -161,8 +161,17 @@ function lockGame() {
   document.getElementById('guess-input').disabled = true;
   document.getElementById('submit-btn').disabled = true;
   document.getElementById('hint-btn').disabled = true;
+  document.getElementById('giveup-btn').disabled = true;
   document.getElementById('play-again-btn').style.display = 'block';
   gameOver = true;
+}
+
+async function giveUp() {
+  if (gameOver) return;
+  const res = await fetch('/api/giveup', { method: 'POST' });
+  const data = await res.json();
+  showMessage(`The answer was: ${data.name}.`, 'gameover');
+  lockGame();
 }
 
 async function submitGuess() {
@@ -241,6 +250,7 @@ async function init() {
 
 document.getElementById('submit-btn').addEventListener('click', submitGuess);
 document.getElementById('hint-btn').addEventListener('click', getHint);
+document.getElementById('giveup-btn').addEventListener('click', giveUp);
 document.getElementById('play-again-btn').addEventListener('click', playAgain);
 document.getElementById('guess-input').addEventListener('keydown', e => {
   if (e.key === 'Enter') submitGuess();
