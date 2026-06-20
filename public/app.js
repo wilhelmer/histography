@@ -274,9 +274,12 @@ let zoom = 1, panX = 0, panY = 0;
 let dragging = false, dragStart = null;
 
 function updateMarkerTransforms() {
-  const inv = 1 / zoom;
+  // Scale markers so they stay the same physical size regardless of zoom or
+  // how much the SVG has shrunk to fit a narrow screen.
+  const displayW = svg.getBoundingClientRect().width || SVG_W;
+  const s = (SVG_W / displayW) / zoom;
   for (const { el, x, y } of markerEls) {
-    el.setAttribute('transform', `translate(${x},${y}) scale(${inv})`);
+    el.setAttribute('transform', `translate(${x},${y}) scale(${s})`);
   }
 }
 
@@ -377,5 +380,7 @@ document.getElementById('zoom-reset').addEventListener('click', () => {
 });
 
 svg.style.cursor = 'grab';
+
+window.addEventListener('resize', updateMarkerTransforms);
 
 init();
