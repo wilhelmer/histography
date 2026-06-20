@@ -15,9 +15,12 @@
 
     <div id="map-container">
       <svg id="world-map" viewBox="0 0 960 500" preserveAspectRatio="xMidYMid meet">
-        <g id="countries"></g>
-        <g id="markers"></g>
+        <g id="map-root">
+          <g id="countries"></g>
+          <g id="markers"></g>
+        </g>
       </svg>
+      <button id="zoom-reset" title="Reset zoom">⊙</button>
     </div>
 
     <div id="legend">

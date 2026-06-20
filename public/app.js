@@ -26,30 +26,36 @@ function renderMap(topo) {
   g.appendChild(svgEl('path', { d: borderPath, class: 'borders' }));
 }
 
+// Break a coordinate sequence into SVG path commands,
+// starting a new sub-path (M) whenever longitude jumps across the antimeridian.
+function coordsToCommands(coords, close) {
+  const cmds = [];
+  let prevLon = null;
+  for (let i = 0; i < coords.length; i++) {
+    const [lon, lat] = coords[i];
+    const { x, y } = project(lat, lon);
+    const jump = prevLon !== null && Math.abs(lon - prevLon) > 180;
+    cmds.push(`${i === 0 || jump ? 'M' : 'L'}${x.toFixed(2)},${y.toFixed(2)}`);
+    prevLon = lon;
+  }
+  if (close) cmds.push('Z');
+  return cmds.join(' ');
+}
+
 function meshToPath(mesh) {
-  return mesh.coordinates.map(line =>
-    line.map(([lon, lat], i) => {
-      const { x, y } = project(lat, lon);
-      return `${i === 0 ? 'M' : 'L'}${x.toFixed(2)},${y.toFixed(2)}`;
-    }).join(' ')
-  ).join(' ');
+  return mesh.coordinates.map(line => coordsToCommands(line, false)).join(' ');
 }
 
 function featureToPath(geometry) {
   if (!geometry) return '';
-  const coords = geometry.type === 'Polygon'
+  const polys = geometry.type === 'Polygon'
     ? [geometry.coordinates]
     : geometry.type === 'MultiPolygon'
     ? geometry.coordinates
     : [];
 
-  return coords.map(poly =>
-    poly.map(ring =>
-      ring.map(([lon, lat], i) => {
-        const { x, y } = project(lat, lon);
-        return `${i === 0 ? 'M' : 'L'}${x.toFixed(2)},${y.toFixed(2)}`;
-      }).join(' ') + 'Z'
-    ).join(' ')
+  return polys.map(poly =>
+    poly.map(ring => coordsToCommands(ring, true)).join(' ')
   ).join(' ');
 }
 
@@ -239,5 +245,113 @@ document.getElementById('play-again-btn').addEventListener('click', playAgain);
 document.getElementById('guess-input').addEventListener('keydown', e => {
   if (e.key === 'Enter') submitGuess();
 });
+
+// ── Zoom & pan ────────────────────────────────────────────────────────────────
+
+const svg = document.getElementById('world-map');
+const mapRoot = document.getElementById('map-root');
+const MIN_ZOOM = 1;
+const MAX_ZOOM = 12;
+const ZOOM_STEP = 1.15;
+
+let zoom = 1, panX = 0, panY = 0;
+let dragging = false, dragStart = null;
+
+function applyTransform() {
+  mapRoot.setAttribute('transform', `translate(${panX},${panY}) scale(${zoom})`);
+}
+
+// Convert a screen point to SVG viewBox coordinates
+function toSVGCoords(screenX, screenY) {
+  const rect = svg.getBoundingClientRect();
+  return {
+    x: (screenX - rect.left) / rect.width  * SVG_W,
+    y: (screenY - rect.top)  / rect.height * SVG_H
+  };
+}
+
+svg.addEventListener('wheel', e => {
+  e.preventDefault();
+  const delta = e.deltaY < 0 ? ZOOM_STEP : 1 / ZOOM_STEP;
+  const newZoom = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, zoom * delta));
+  const ratio = newZoom / zoom;
+  const { x, y } = toSVGCoords(e.clientX, e.clientY);
+  // Keep the point under the cursor fixed
+  panX = x - ratio * (x - panX);
+  panY = y - ratio * (y - panY);
+  zoom = newZoom;
+  applyTransform();
+}, { passive: false });
+
+svg.addEventListener('mousedown', e => {
+  if (e.button !== 0) return;
+  dragging = true;
+  dragStart = toSVGCoords(e.clientX, e.clientY);
+  svg.style.cursor = 'grabbing';
+});
+
+window.addEventListener('mousemove', e => {
+  if (!dragging) return;
+  const cur = toSVGCoords(e.clientX, e.clientY);
+  panX += cur.x - dragStart.x;
+  panY += cur.y - dragStart.y;
+  dragStart = cur;
+  applyTransform();
+});
+
+window.addEventListener('mouseup', () => {
+  dragging = false;
+  svg.style.cursor = 'grab';
+});
+
+// Touch support
+let lastTouchDist = null;
+
+svg.addEventListener('touchstart', e => {
+  if (e.touches.length === 2) {
+    const dx = e.touches[0].clientX - e.touches[1].clientX;
+    const dy = e.touches[0].clientY - e.touches[1].clientY;
+    lastTouchDist = Math.sqrt(dx * dx + dy * dy);
+  } else if (e.touches.length === 1) {
+    dragStart = toSVGCoords(e.touches[0].clientX, e.touches[0].clientY);
+  }
+}, { passive: true });
+
+svg.addEventListener('touchmove', e => {
+  e.preventDefault();
+  if (e.touches.length === 2) {
+    const dx = e.touches[0].clientX - e.touches[1].clientX;
+    const dy = e.touches[0].clientY - e.touches[1].clientY;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+    if (lastTouchDist) {
+      const delta = dist / lastTouchDist;
+      const mx = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+      const my = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+      const newZoom = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, zoom * delta));
+      const ratio = newZoom / zoom;
+      const { x, y } = toSVGCoords(mx, my);
+      panX = x - ratio * (x - panX);
+      panY = y - ratio * (y - panY);
+      zoom = newZoom;
+      applyTransform();
+    }
+    lastTouchDist = dist;
+  } else if (e.touches.length === 1 && dragStart) {
+    const cur = toSVGCoords(e.touches[0].clientX, e.touches[0].clientY);
+    panX += cur.x - dragStart.x;
+    panY += cur.y - dragStart.y;
+    dragStart = cur;
+    applyTransform();
+  }
+}, { passive: false });
+
+svg.addEventListener('touchend', () => { lastTouchDist = null; }, { passive: true });
+
+document.getElementById('zoom-reset').addEventListener('click', () => {
+  zoom = 1; panX = 0; panY = 0;
+  applyTransform();
+});
+
+svg.style.cursor = 'grab';
 
 init();
